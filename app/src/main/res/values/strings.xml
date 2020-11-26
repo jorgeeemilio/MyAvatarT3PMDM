@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">MyAvatar</string>
+    <string name="txt_avatar">Imagen Avatar</string>
+    <string name="txt_profesion">Profesión</string>
+    <string name="btn_crear">CREAR</string>
+    <string name="txt_caracteristicas">Características principales</string>
+    <string name="lbl_vida">VIDA</string>
+    <string name="lbl_magia">MAGIA</string>
+    <string name="lbl_fuerza">FUERZA</string>
+    <string name="lbl_velocidad">VELOCIDAD</string>
+    <string name="txt_imagenAvatar">Imagen avatar</string>
+    <string name="txt_imagenProfesion">Imagen profesión</string>
+    <string name="txt_dialogEspecie">Selecciona su especie</string>
+    <string name="txt_radioElfo">Elfo</string>
+    <string name="txt_radioHobbit">Hobbit</string>
+    <string name="txt_radioHumano">Humano</string>
+    <string name="txt_radioEnano">Enano</string>
+    <string name="txt_dialogNombreAvatar">Ponle nombre a tu avatar</string>
+    <string name="txt_hintNombre">Escribe aquí el nombre de tu avatar</string>
+    <string name="txt_dialogProfesion">Selecciona una profesión</string>
+    <string name="txt_radioArquero">Arquero</string>
+    <string name="txt_radioGuerrero">Guerrero</string>
+    <string name="txt_radioMago">Mago</string>
+    <string name="txt_radioHerrero">Herrero</string>
+    <string name="txt_radioMinero">Minero</string>
+    <string name="txt_dialogSexo">Selecciona su sexo</string>
+    <string name="txt_radioHombre">Arquero</string>
+    <string name="txt_radioMujer">Arquero</string>
 </resources>
