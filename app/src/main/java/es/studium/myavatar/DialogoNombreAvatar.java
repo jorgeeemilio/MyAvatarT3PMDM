@@ -23,12 +23,14 @@ public class DialogoNombreAvatar extends DialogFragment {
         builder.setView(inflater.inflate(R.layout.dlg_nombre, null));
 
         View MiVentanaDialogo = inflater.inflate(R.layout.dlg_nombre,null);
+
         nomAvatar = MiVentanaDialogo.findViewById(R.id.editTextDlgNombreAvatar);
+
         builder.setView(MiVentanaDialogo)
                 .setTitle(R.string.txt_dialogNombreAvatar)
                 .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        if (!nomAvatar.getText().toString().equals("")){
+                        if (!nomAvatar.getText().toString().isEmpty()){
 
                             //Si se cumple que no esta vacío el campo texto entonces escuchara al método de nuestro MainActivity
                             dlgEscuchar.setDatosDialogoNombre(nomAvatar.getText().toString());

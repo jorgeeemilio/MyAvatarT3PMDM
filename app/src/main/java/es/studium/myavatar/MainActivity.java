@@ -21,14 +21,15 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     DialogoProfesion profesionDialogo;
     ImageView imgAvatar;
     ImageView imgProfesion;
+    String genero="";
 
-
-    Button   btn_crear;
+     Button   btn_crear;
      EditText campoTextVida;
      EditText campoTextMagia;
      EditText campoTextFuerza;
      EditText campoTextVelocidad;
      EditText campoNombre;
+     EditText campoSexo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
         btn_crear = findViewById(R.id.btn_crearAvatar);
         btn_crear.setOnClickListener(this);
         campoNombre = findViewById(R.id.textAvatar);
+        campoSexo = findViewById(R.id.textSexo);
         campoTextVida = findViewById(R.id.editTextNumberVida);
         campoTextMagia = findViewById(R.id.editTextNumberMagia);
         campoTextFuerza = findViewById(R.id.editTextNumberFuerza);
@@ -70,39 +72,59 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     @Override
     public void setDatosDialogoEspecie(String especie) {
 
-        if (especie.equals("Elfo")){
-
-        }else if (especie.equals("Enano")){
-
-        }else if (especie.equals("Humano")){
-
-        }else if (especie.equals("Hobbit")){
-
+        if(campoSexo.getText().toString().equals("VARÓN")) {
+            if (especie.equals("Elfo")) {
+                imgAvatar.setImageResource(R.drawable.icons8_man_elf_96);
+            } else if (especie.equals("Enano")) {
+                imgAvatar.setImageResource(R.drawable.icons8_fairy_emoji_96);
+            } else if (especie.equals("Humano")) {
+                imgAvatar.setImageResource(R.drawable.icons8_morfeo_96);
+            } else if (especie.equals("Hobbit")) {
+                imgAvatar.setImageResource(R.drawable.icons8_frodo_96);
+            }
+        }else {
+            if (especie.equals("Elfo")) {
+                imgAvatar.setImageResource(R.drawable.icons8_woman_elf_96);
+            } else if (especie.equals("Enano")) {
+                imgAvatar.setImageResource(R.drawable.icons8_woman_fairy_96);
+            } else if (especie.equals("Humano")) {
+                imgAvatar.setImageResource(R.drawable.icons8_mujer_maravilla_96);
+            } else if (especie.equals("Hobbit")) {
+                imgAvatar.setImageResource(R.drawable.icons8_frodo_mujer);
+            }
         }
     }
 
     @Override
     public void setDatosDialogoSexo(String sexo) {
-
+        campoSexo.setText(sexo);
     }
 
     @Override
     public void setDatosDialogoProfesion(String profesion) {
 
+        if (profesion.equals("Arquero")){
+            imgAvatar.setImageResource(R.drawable.icons8_arco_de_arqueros_96);
+        }else if (profesion.equals("Guerrero")){
+            imgAvatar.setImageResource(R.drawable.icons8_espada_80);
+        }else if (profesion.equals("Mago")){
+            imgAvatar.setImageResource(R.drawable.icons8_mago_personal_100);
+        }else if (profesion.equals("Herrero")){
+            imgAvatar.setImageResource(R.drawable.icons8_martillo_y_yunque_100);
+        }else if (profesion.equals("Minero")){
+            imgAvatar.setImageResource(R.drawable.icons8_fiebre_dorada_128);
+        }
     }
 
     @Override
     public void ejecutarSegundoDialogo() {
-
         sexoDialogo = new DialogoSexo();
         sexoDialogo.setCancelable(false);
         sexoDialogo.show(getSupportFragmentManager(), "Diálogo Sexo");
-
     }
 
     @Override
     public void ejecutarTercerDialogo() {
-
         especieDialogo = new DialogoEspecie();
         sexoDialogo.setCancelable(false);
         sexoDialogo.show(getSupportFragmentManager(), "Diálogo Especie");

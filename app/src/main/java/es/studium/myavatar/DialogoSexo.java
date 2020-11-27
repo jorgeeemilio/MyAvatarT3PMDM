@@ -7,18 +7,18 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+
+import static es.studium.myavatar.R.layout.dlg_sexo;
 
 public class DialogoSexo extends DialogFragment {
     InterfaceAvanzar dlgEscuchar;
     RadioButton rdbHombre;
     RadioButton rdbMujer;
-    // boolean click;
+    String txtGenero;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
@@ -35,15 +35,18 @@ public class DialogoSexo extends DialogFragment {
         builder.setView(MiVentanaDialogo)
                 .setTitle(R.string.txt_dialogSexo)
                 .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int which) {
                         //Creamos las condiciones de la selección realizada
 
                         if (rdbHombre.isChecked()) {
-                            dlgEscuchar.setDatosDialogoSexo(rdbHombre.toString());
-                            //click = false;
+                            txtGenero = "VARÓN";
+                            dlgEscuchar.setDatosDialogoSexo(txtGenero);
+                            dlgEscuchar.ejecutarTercerDialogo();
+
                         } else if (rdbMujer.isChecked()) {
-                            dlgEscuchar.setDatosDialogoSexo(rdbMujer.toString());
-                           //click = false;
+                            txtGenero = "HEMBRA";
+                            dlgEscuchar.setDatosDialogoSexo(txtGenero);
+                            dlgEscuchar.ejecutarTercerDialogo();
                         }else {
                             Toast.makeText(getActivity(), "ERROR SUBSANABLE \n"+"    Debe elegir su Sexo", Toast.LENGTH_SHORT).show();
                         }
@@ -51,7 +54,7 @@ public class DialogoSexo extends DialogFragment {
                     }
                 })
                 .setNegativeButton(R.string.txt_btnCancelarDialog, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int which) {
                         // User cancelled the dialog
                     }
                 });

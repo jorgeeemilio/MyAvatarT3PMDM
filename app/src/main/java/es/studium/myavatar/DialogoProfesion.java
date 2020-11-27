@@ -24,9 +24,9 @@ public class DialogoProfesion extends DialogFragment {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.dlg_sexo, null));
+        builder.setView(inflater.inflate(R.layout.dlg_profesion, null));
 
-        View MiVentanaDialogo = inflater.inflate(R.layout.dlg_sexo, null);
+        View MiVentanaDialogo = inflater.inflate(R.layout.dlg_profesion, null);
 
         //Creamos los vínculos con los strings
         rbArquero = MiVentanaDialogo.findViewById(R.id.radioBtnArquero);
@@ -37,7 +37,7 @@ public class DialogoProfesion extends DialogFragment {
         builder.setView(MiVentanaDialogo)
                 .setTitle(R.string.txt_dialogProfesion)
                 .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int which) {
                         //Creamos las condiciones de la selección realizada
 
                             if (rbArquero.isChecked()) {
@@ -62,7 +62,7 @@ public class DialogoProfesion extends DialogFragment {
                     }
                 })
                 .setNegativeButton(R.string.txt_btnCancelarDialog, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int which) {
                         // User cancelled the dialog
                     }
                 });

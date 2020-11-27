@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.DialogFragment;
 
+import static es.studium.myavatar.R.layout.dlg_especie;
+
 public class DialogoEspecie extends DialogFragment {
     InterfaceAvanzar dlgEscuchar;
     RadioButton rbElfo;
@@ -33,24 +35,24 @@ public class DialogoEspecie extends DialogFragment {
         rdEnano = MiVentanaDialogo.findViewById(R.id.radioBtnEnano);
         rbHobbit = MiVentanaDialogo.findViewById(R.id.radioBtnHoobit);
         rdHumano = MiVentanaDialogo.findViewById(R.id.radioBtnHumano);
+
         builder.setView(MiVentanaDialogo)
                 .setTitle(R.string.txt_dialogEspecie)
                 .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int which) {
                         //Creamos las condiciones de la selección realizada
-
                             if (rbElfo.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rbElfo.toString());
-
+                                dlgEscuchar.setDatosDialogoEspecie("Elfo");
+                                dlgEscuchar.ejecutarCuartoDialogo();
                             } else if (rdEnano.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rdEnano.toString());
-
+                                dlgEscuchar.setDatosDialogoEspecie("Enano");
+                                dlgEscuchar.ejecutarCuartoDialogo();
                             }else if (rdHumano.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rdHumano.toString());
-
+                                dlgEscuchar.setDatosDialogoEspecie("Humano");
+                                dlgEscuchar.ejecutarCuartoDialogo();
                             }else if (rbHobbit.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rbHobbit.toString());
-
+                                dlgEscuchar.setDatosDialogoEspecie("Hobbit");
+                                dlgEscuchar.ejecutarCuartoDialogo();
                             }else {
                                 Toast.makeText(getActivity(), "ERROR SUBSANABLE \n"+"    Debe elegir su Raza/Especie", Toast.LENGTH_SHORT).show();
                             }
