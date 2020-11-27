@@ -34,7 +34,7 @@ public class DialogoEspecie extends DialogFragment {
         rbHobbit = MiVentanaDialogo.findViewById(R.id.radioBtnHoobit);
         rdHumano = MiVentanaDialogo.findViewById(R.id.radioBtnHumano);
         builder.setView(MiVentanaDialogo)
-                .setTitle(R.string.txt_dialogSexo)
+                .setTitle(R.string.txt_dialogEspecie)
                 .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //Creamos las condiciones de la selección realizada

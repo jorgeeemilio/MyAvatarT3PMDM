@@ -64,13 +64,21 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     @Override
     public void setDatosDialogoNombre(String nombre)
     {
-
         campoNombre.setText(nombre);
     }
 
     @Override
     public void setDatosDialogoEspecie(String especie) {
 
+        if (especie.equals("Elfo")){
+
+        }else if (especie.equals("Enano")){
+
+        }else if (especie.equals("Humano")){
+
+        }else if (especie.equals("Hobbit")){
+
+        }
     }
 
     @Override
@@ -110,13 +118,13 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     @Override
     public void randomStats() {
 
-        int vida = rand.nextInt(100 - 1)+1;
+        int vida = rand.nextInt(100)+1;
         campoTextVida.setText("   "+vida+" puntos de HP");
-        int magia = rand.nextInt(10 - 1)+1;
-        campoTextMagia.setText("   "+magia+" puntos de MG");
-        int fuerza = rand.nextInt(20 - 1)+1;
+        int magia = rand.nextInt(10)+1;
+        campoTextMagia.setText("   "+magia+" puntos de M");
+        int fuerza = rand.nextInt(20)+1;
         campoTextFuerza.setText("   "+fuerza+" puntos de PW");
-        int velocidad = rand.nextInt(5 - 1)+1;
+        int velocidad = rand.nextInt(5)+1;
         campoTextVelocidad.setText("   "+velocidad+" puntos de SP");
     }
 

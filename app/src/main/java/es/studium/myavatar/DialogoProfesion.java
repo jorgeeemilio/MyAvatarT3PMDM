@@ -35,7 +35,7 @@ public class DialogoProfesion extends DialogFragment {
         rdHerrero = MiVentanaDialogo.findViewById(R.id.radioBtnHerrero);
         rdMinero = MiVentanaDialogo.findViewById(R.id.radioBtnMinero);
         builder.setView(MiVentanaDialogo)
-                .setTitle(R.string.txt_dialogSexo)
+                .setTitle(R.string.txt_dialogProfesion)
                 .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //Creamos las condiciones de la selección realizada
