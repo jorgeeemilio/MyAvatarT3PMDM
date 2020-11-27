@@ -26,8 +26,8 @@
     <string name="txt_radioHerrero">Herrero</string>
     <string name="txt_radioMinero">Minero</string>
     <string name="txt_dialogSexo">Selecciona su sexo</string>
-    <string name="txt_radioHombre">Arquero</string>
-    <string name="txt_radioMujer">Arquero</string>
+    <string name="txt_radioHombre">VARÓN</string>
+    <string name="txt_radioMujer">HEMBRA</string>
     <string name="pts_campoVida"> puntos de hp</string>
     <string name="pts_campoMagia"> puntos de mg</string>
     <string name="pts_campoFuerza"> puntos de pw</string>

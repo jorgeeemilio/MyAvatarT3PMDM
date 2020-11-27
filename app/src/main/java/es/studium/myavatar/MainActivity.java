@@ -1,9 +1,9 @@
 package es.studium.myavatar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +13,17 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements InterfaceAvanzar, View.OnClickListener{
     Random rand = new Random();
+    DialogFragment nombreDialogo;
+    DialogFragment sexoDialogo;
+    DialogFragment especieDialogo;
+    DialogFragment profesionDialogo;
 
-    private Button btn_crear;
+    private Button   btn_crear;
     private EditText campoTextVida;
     private EditText campoTextMagia;
     private EditText campoTextFuerza;
     private EditText campoTextVelocidad;
-
+    private EditText campoNombre;
 
 
     @Override
@@ -29,15 +33,17 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
 
         btn_crear = findViewById(R.id.btn_crearAvatar);
         btn_crear.setOnClickListener(this);
+        campoNombre = findViewById(R.id.textAvatar);
         campoTextVida = findViewById(R.id.editTextNumberVida);
         campoTextMagia = findViewById(R.id.editTextNumberMagia);
         campoTextFuerza = findViewById(R.id.editTextNumberFuerza);
         campoTextVelocidad = findViewById(R.id.editTextNumberVelocidad);
 
     }
+
     public void clickCrear (View v){
 
-        DialogoNombreAvatar nombreDialogo = new DialogoNombreAvatar();
+        nombreDialogo = new DialogoNombreAvatar();
         nombreDialogo.setCancelable(false);
         nombreDialogo.show(getSupportFragmentManager(), "Diálogo Nombre");
 
@@ -45,28 +51,14 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     @Override
     public void onClick(View v) {
         if(v.equals(btn_crear)){
-
+            clickCrear(btn_crear);
 }
     }
 
-    @Override
-    public void aceptarDialogo() {
-
-    }
-
-    @Override
-    public void cancelarDialogo() {
-
-    }
-
-    @Override
-    public void seleccionarDialogo() {
-
-    }
 
     @Override
     public void setDatosDialogoNombre(String nombre) {
-
+        campoNombre.setText(nombre);
     }
 
     @Override
@@ -87,16 +79,25 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     @Override
     public void ejecutarSegundoDialogo() {
 
+        sexoDialogo = new DialogoSexo();
+        sexoDialogo.setCancelable(false);
+        sexoDialogo.show(getSupportFragmentManager(), "Diálogo Sexo");
+
     }
 
     @Override
     public void ejecutarTercerDialogo() {
 
+        especieDialogo = new DialogoEspecie();
+        sexoDialogo.setCancelable(false);
+        sexoDialogo.show(getSupportFragmentManager(), "Diálogo Especie");
     }
 
     @Override
     public void ejecutarCuartoDialogo() {
-
+        profesionDialogo = new DialogoProfesion();
+        profesionDialogo.setCancelable(false);
+        profesionDialogo.show(getSupportFragmentManager(), "Diálogo Profesión");
     }
 
     @Override

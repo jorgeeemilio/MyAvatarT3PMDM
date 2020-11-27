@@ -2,10 +2,8 @@ package es.studium.myavatar;
 
 public interface InterfaceAvanzar {
 
-    //Métodos para manipular los Diálogos
-    public void aceptarDialogo();
-    public void cancelarDialogo();
-    public void seleccionarDialogo();
+    //Función Random para rellenar las características
+    public void randomStats();
 
     //Métodos para guardar información
     public void setDatosDialogoNombre(String nombre);
@@ -18,6 +16,5 @@ public interface InterfaceAvanzar {
     public void ejecutarTercerDialogo();
     public void ejecutarCuartoDialogo();
 
-    //Función Random
-    public void randomStats();
+
 }
