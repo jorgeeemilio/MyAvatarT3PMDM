@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">MyAvatar</string>
+    <string name="txt_btnCancelarDialog">Cancelar</string>
+    <string name="txt_btnAceptarDialog">Aceptar</string>
     <string name="txt_avatar">Nombre Avatar</string>
     <string name="txt_profesion">Profesión</string>
     <string name="txt_btnCrear">CREAR</string>
@@ -26,4 +28,8 @@
     <string name="txt_dialogSexo">Selecciona su sexo</string>
     <string name="txt_radioHombre">Arquero</string>
     <string name="txt_radioMujer">Arquero</string>
+    <string name="pts_campoVida"> puntos de hp</string>
+    <string name="pts_campoMagia"> puntos de mg</string>
+    <string name="pts_campoFuerza"> puntos de pw</string>
+    <string name="pts_campoVelocidad"> puntos de sp</string>
 </resources>
