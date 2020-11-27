@@ -2,6 +2,7 @@ package es.studium.myavatar;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,18 +28,17 @@ public class DialogoNombreAvatar extends DialogFragment {
                 .setTitle(R.string.txt_dialogNombreAvatar)
                 .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        if (nomAvatar.getText().toString().isEmpty()){
-
-                            Toast.makeText(getActivity(), "   Error de Creación \n"+"Faltan campos por rellenar", Toast.LENGTH_SHORT).show();
-
-
-                        }else {
+                        if (!nomAvatar.getText().toString().equals("")){
 
                             //Si se cumple que no esta vacío el campo texto entonces escuchara al método de nuestro MainActivity
                             dlgEscuchar.setDatosDialogoNombre(nomAvatar.getText().toString());
                             //Una vez capturado el dato nombre llamamos a la función  para ejecutar el siguiente dialogo
                             dlgEscuchar.ejecutarSegundoDialogo();
 
+
+                        }else {
+
+                            Toast.makeText(getActivity(), "   Error de Creación \n"+"Faltan campos por rellenar", Toast.LENGTH_SHORT).show();
                         }
                     }
                 })
@@ -49,5 +49,16 @@ public class DialogoNombreAvatar extends DialogFragment {
                 });
         // Create the AlertDialog object and return it
         return builder.create();
+    }
+    public void onAttach(Context context){
+
+        super.onAttach(context);
+
+        try {
+            dlgEscuchar = (InterfaceAvanzar) context;
+        }catch(ClassCastException e){
+
+            throw new ClassCastException(context.toString()+ " Se debe implementar un nuevo OnNuevoDialogoListener");
+        }
     }
 }

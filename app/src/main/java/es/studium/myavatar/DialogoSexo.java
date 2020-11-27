@@ -2,6 +2,7 @@ package es.studium.myavatar;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,13 +11,14 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 public class DialogoSexo extends DialogFragment {
     InterfaceAvanzar dlgEscuchar;
     RadioButton rdbHombre;
     RadioButton rdbMujer;
-    boolean click;
+    // boolean click;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
@@ -34,19 +36,18 @@ public class DialogoSexo extends DialogFragment {
                 .setTitle(R.string.txt_dialogSexo)
                 .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        //Creamos las condiciones de la seleccioón realizada
-                        click = false;
-                        while (click){
+                        //Creamos las condiciones de la selección realizada
+
                         if (rdbHombre.isChecked()) {
                             dlgEscuchar.setDatosDialogoSexo(rdbHombre.toString());
-                            click = false;
+                            //click = false;
                         } else if (rdbMujer.isChecked()) {
                             dlgEscuchar.setDatosDialogoSexo(rdbMujer.toString());
-                            click = false;
+                           //click = false;
                         }else {
                             Toast.makeText(getActivity(), "ERROR SUBSANABLE \n"+"    Debe elegir su Sexo", Toast.LENGTH_SHORT).show();
                         }
-                        }
+
                     }
                 })
                 .setNegativeButton(R.string.txt_btnCancelarDialog, new DialogInterface.OnClickListener() {
@@ -56,5 +57,16 @@ public class DialogoSexo extends DialogFragment {
                 });
         // Create the AlertDialog object and return it
         return builder.create();
+    }
+    public void onAttach(Context context){
+
+       super.onAttach(context);
+
+       try {
+           dlgEscuchar = (InterfaceAvanzar) context;
+       }catch(ClassCastException e){
+
+           throw new ClassCastException(context.toString()+ " Se debe implementar un nuevo OnNuevoDialogoListener");
+       }
     }
 }

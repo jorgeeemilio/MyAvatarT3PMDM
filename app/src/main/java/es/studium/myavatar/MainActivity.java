@@ -4,27 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements InterfaceAvanzar, View.OnClickListener{
     Random rand = new Random();
-    DialogFragment nombreDialogo;
-    DialogFragment sexoDialogo;
-    DialogFragment especieDialogo;
-    DialogFragment profesionDialogo;
+    DialogoNombreAvatar nombreDialogo;
+    DialogoSexo sexoDialogo;
+    DialogoEspecie especieDialogo;
+    DialogoProfesion profesionDialogo;
+    ImageView imgAvatar;
+    ImageView imgProfesion;
 
-    private Button   btn_crear;
-    private EditText campoTextVida;
-    private EditText campoTextMagia;
-    private EditText campoTextFuerza;
-    private EditText campoTextVelocidad;
-    private EditText campoNombre;
 
+    Button   btn_crear;
+     EditText campoTextVida;
+     EditText campoTextMagia;
+     EditText campoTextFuerza;
+     EditText campoTextVelocidad;
+     EditText campoNombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
         campoTextMagia = findViewById(R.id.editTextNumberMagia);
         campoTextFuerza = findViewById(R.id.editTextNumberFuerza);
         campoTextVelocidad = findViewById(R.id.editTextNumberVelocidad);
-
+        imgAvatar = findViewById(R.id.imageAvatar);
+        imgProfesion = findViewById(R.id.imageProfesion);
     }
 
     public void clickCrear (View v){
@@ -57,7 +62,9 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
 
 
     @Override
-    public void setDatosDialogoNombre(String nombre) {
+    public void setDatosDialogoNombre(String nombre)
+    {
+
         campoNombre.setText(nombre);
     }
 

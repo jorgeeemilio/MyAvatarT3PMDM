@@ -7,8 +7,8 @@
 
     <RadioGroup
         android:id="@+id/rdGroupSexo"
-        android:layout_width="408dp"
-        android:layout_height="214dp"
+        android:layout_width="328dp"
+        android:layout_height="179dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -18,13 +18,13 @@
         <RadioButton
             android:id="@+id/radioButtonHombre"
             android:layout_width="match_parent"
-            android:layout_height="109dp"
+            android:layout_height="86dp"
             android:text="@string/txt_radioHombre" />
 
         <RadioButton
             android:id="@+id/radioButtonMujer"
             android:layout_width="match_parent"
-            android:layout_height="105dp"
+            android:layout_height="79dp"
             android:text="@string/txt_radioMujer" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
