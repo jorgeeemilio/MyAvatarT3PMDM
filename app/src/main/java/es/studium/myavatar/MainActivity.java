@@ -47,16 +47,24 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
         btn_crear.setOnClickListener(this);
         btn_limpiar = findViewById(R.id.btn_limpiarAvatar);
         btn_limpiar.setOnClickListener(this);
+
         //Campos texto avatar
         campoNombre = findViewById(R.id.textAvatar);
+        campoNombre.setEnabled(false);
         campoSexo = findViewById(R.id.textSexo);
+        campoSexo.setEnabled(false);
         campoTextVida = findViewById(R.id.editTextNumberVida);
+        campoTextVida.setEnabled(false);
         campoTextMagia = findViewById(R.id.editTextNumberMagia);
+        campoTextMagia.setEnabled(false);
         campoTextFuerza = findViewById(R.id.editTextNumberFuerza);
+        campoTextFuerza.setEnabled(false);
         campoTextVelocidad = findViewById(R.id.editTextNumberVelocidad);
+        campoTextVelocidad.setEnabled(false);
         //Campos de imágenes
         imgAvatar = findViewById(R.id.imageAvatar);
         imgProfesion = findViewById(R.id.imageProfesion);
+
         //Implementacion de fuentes en campos de texto
         campoNombre.setTypeface(script);
         campoTextVida.setTypeface(script);
