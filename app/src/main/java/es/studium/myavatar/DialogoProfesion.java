@@ -39,7 +39,7 @@ public class DialogoProfesion extends DialogFragment {
                         }else if (which==3){
                             dlgEscuchar.setDatosDialogoProfesion("Herrero");
                             dlgEscuchar.randomStats();
-                        }else if (which==3){
+                        }else if (which==4){
                             dlgEscuchar.setDatosDialogoProfesion("Arquero");
                             dlgEscuchar.randomStats();
                         }

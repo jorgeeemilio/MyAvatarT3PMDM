@@ -1,10 +1,9 @@
 package es.studium.myavatar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 
-import android.app.Dialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +14,8 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements InterfaceAvanzar, View.OnClickListener{
     Random rand = new Random();
+    private Typeface script;
+    private Typeface txtPrincipal;
     DialogoNombreAvatar nombreDialogo;
     DialogoSexo sexoDialogo;
     DialogoEspecie especieDialogo;
@@ -24,31 +25,60 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
 
 
      Button   btn_crear;
+     Button   btn_limpiar;
      EditText campoTextVida;
      EditText campoTextMagia;
      EditText campoTextFuerza;
      EditText campoTextVelocidad;
      EditText campoNombre;
      EditText campoSexo;
+     String   fuente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //le asignamos a la variable el path donde se encuentra nuestra fuente
+        fuente = "fuentes/sixty.ttf";
+        //le asignamos a la instancia de Typeface la fuente
+        this.script = Typeface.createFromAsset(getAssets(), fuente);
+        //Botónes
         btn_crear = findViewById(R.id.btn_crearAvatar);
         btn_crear.setOnClickListener(this);
+        btn_limpiar = findViewById(R.id.btn_limpiarAvatar);
+        btn_limpiar.setOnClickListener(this);
+        //Campos texto avatar
         campoNombre = findViewById(R.id.textAvatar);
         campoSexo = findViewById(R.id.textSexo);
         campoTextVida = findViewById(R.id.editTextNumberVida);
         campoTextMagia = findViewById(R.id.editTextNumberMagia);
         campoTextFuerza = findViewById(R.id.editTextNumberFuerza);
         campoTextVelocidad = findViewById(R.id.editTextNumberVelocidad);
+        //Campos de imágenes
         imgAvatar = findViewById(R.id.imageAvatar);
         imgProfesion = findViewById(R.id.imageProfesion);
+        //Implementacion de fuentes en campos de texto
+        campoNombre.setTypeface(script);
+        campoTextVida.setTypeface(script);
+        campoTextMagia.setTypeface(script);
+        campoTextFuerza.setTypeface(script);
+        campoTextVelocidad.setTypeface(script);
+        btn_crear.setTypeface(script);
+
     }
 
     public void clickCrear (View v){
+
+        campoNombre.setText("");
+        campoSexo.setText("");
+        campoTextVida.setText("");
+        campoTextMagia.setText("");
+        campoTextFuerza.setText("");
+        campoTextVelocidad.setText("");
+
+    }
+    public void clickLimpiar (View v){
+
 
         nombreDialogo = new DialogoNombreAvatar();
         nombreDialogo.setCancelable(false);
@@ -59,7 +89,9 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     public void onClick(View v) {
         if(v.equals(btn_crear)){
             clickCrear(btn_crear);
-}
+        }else if (v.equals(btn_limpiar)){
+            clickLimpiar(btn_limpiar);
+        }
     }
 
 
@@ -72,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     @Override
     public void setDatosDialogoEspecie(String especie) {
 
-        if(campoSexo.getText().toString().equals("VARÓN")) {
+        if(campoSexo.getText().toString().equals("Varón")) {
             if (especie.equals("Elfo")) {
                 imgAvatar.setImageResource(R.drawable.icons8_man_elf_96);
             } else if (especie.equals("Enano")) {
@@ -82,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
             } else if (especie.equals("Hobbit")) {
                 imgAvatar.setImageResource(R.drawable.icons8_frodo_96);
             }
-        }else if (campoSexo.getText().toString().equals("HEMBRA")) {
+        }else if (campoSexo.getText().toString().equals("Hembra")) {
             if (especie.equals("Elfo")) {
                 imgAvatar.setImageResource(R.drawable.icons8_woman_elf_96);
             } else if (especie.equals("Enano")) {

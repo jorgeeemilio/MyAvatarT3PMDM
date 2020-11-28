@@ -30,10 +30,10 @@ public class DialogoSexo extends DialogFragment {
                         // of the selected item
                         if(which==0){
 
-                            dlgEscuchar.setDatosDialogoSexo("VARÓN");
+                            dlgEscuchar.setDatosDialogoSexo("Varón");
                             dlgEscuchar.ejecutarTercerDialogo();
                         }else{
-                            dlgEscuchar.setDatosDialogoSexo("HEMBRA");
+                            dlgEscuchar.setDatosDialogoSexo("Hembra");
                             dlgEscuchar.ejecutarTercerDialogo();
                         }
                     }
