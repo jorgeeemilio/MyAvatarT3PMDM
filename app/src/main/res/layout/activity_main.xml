@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E7F0FA"
+    android:background="#87BCF6"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_limpiarAvatar"
+        android:id="@+id/btn_crearAvatar"
         android:layout_width="167dp"
         android:layout_height="72dp"
         android:onClick="clickCrear"
@@ -36,7 +36,7 @@
         app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.078" />
 
     <EditText
         android:id="@+id/textSexo"
@@ -51,10 +51,10 @@
         app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.167" />
+        app:layout_constraintVertical_bias="0.157" />
 
     <Button
-        android:id="@+id/btn_crearAvatar"
+        android:id="@+id/btn_limpiarAvatar"
         android:layout_width="167dp"
         android:layout_height="72dp"
         android:onClick="clickLimpiar"
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.23"
-        app:srcCompat="@android:drawable/ic_menu_help" />
+        app:srcCompat="@drawable/icons8_escudo_de_pregunta_64" />
 
     <TextView
         android:id="@+id/generoAvatar"
@@ -107,16 +107,16 @@
         app:layout_constraintHorizontal_bias="0.713"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.119" />
 
     <TextView
         android:id="@+id/textCaracteristicas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/stocky"
         android:text="@string/txt_caracteristicas"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:fontFamily="@font/stocky"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.569"
@@ -249,5 +249,5 @@
         app:layout_constraintHorizontal_bias="0.757"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.039" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -64,10 +64,18 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
         campoTextFuerza.setTypeface(script);
         campoTextVelocidad.setTypeface(script);
         btn_crear.setTypeface(script);
+        btn_limpiar.setTypeface(script);
 
     }
 
     public void clickCrear (View v){
+
+        nombreDialogo = new DialogoNombreAvatar();
+        nombreDialogo.setCancelable(false);
+        nombreDialogo.show(getSupportFragmentManager(), "Diálogo Nombre");
+
+    }
+    public void clickLimpiar (View v){
 
         campoNombre.setText("");
         campoSexo.setText("");
@@ -75,14 +83,9 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
         campoTextMagia.setText("");
         campoTextFuerza.setText("");
         campoTextVelocidad.setText("");
+        imgAvatar.setImageResource(R.drawable.ic_ninja_katana_warrior_sword_japan_japanese_asian_assassin_icon_127297__1_);
+        imgProfesion.setImageResource(R.drawable.icons8_escudo_de_pregunta_64);
 
-    }
-    public void clickLimpiar (View v){
-
-
-        nombreDialogo = new DialogoNombreAvatar();
-        nombreDialogo.setCancelable(false);
-        nombreDialogo.show(getSupportFragmentManager(), "Diálogo Nombre");
 
     }
     @Override
@@ -104,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     @Override
     public void setDatosDialogoEspecie(String especie) {
 
-        if(campoSexo.getText().toString().equals("Varón")) {
+        if(campoSexo.getText().toString().equals("Hombre")) {
             if (especie.equals("Elfo")) {
                 imgAvatar.setImageResource(R.drawable.icons8_man_elf_96);
             } else if (especie.equals("Enano")) {
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
             } else if (especie.equals("Hobbit")) {
                 imgAvatar.setImageResource(R.drawable.icons8_frodo_96);
             }
-        }else if (campoSexo.getText().toString().equals("Hembra")) {
+        }else if (campoSexo.getText().toString().equals("Mujer")) {
             if (especie.equals("Elfo")) {
                 imgAvatar.setImageResource(R.drawable.icons8_woman_elf_96);
             } else if (especie.equals("Enano")) {
