@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     DialogoProfesion profesionDialogo;
     ImageView imgAvatar;
     ImageView imgProfesion;
-    String genero="";
+
 
      Button   btn_crear;
      EditText campoTextVida;
