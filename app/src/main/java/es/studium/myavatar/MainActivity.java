@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
             } else if (especie.equals("Hobbit")) {
                 imgAvatar.setImageResource(R.drawable.icons8_frodo_96);
             }
-        }else {
+        }else if (campoSexo.getText().toString().equals("HEMBRA")) {
             if (especie.equals("Elfo")) {
                 imgAvatar.setImageResource(R.drawable.icons8_woman_elf_96);
             } else if (especie.equals("Enano")) {
@@ -104,15 +104,15 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     public void setDatosDialogoProfesion(String profesion) {
 
         if (profesion.equals("Arquero")){
-            imgAvatar.setImageResource(R.drawable.icons8_arco_de_arqueros_96);
+            imgProfesion.setImageResource(R.drawable.icons8_arco_de_arqueros_96);
         }else if (profesion.equals("Guerrero")){
-            imgAvatar.setImageResource(R.drawable.icons8_espada_80);
+            imgProfesion.setImageResource(R.drawable.icons8_espada_80);
         }else if (profesion.equals("Mago")){
-            imgAvatar.setImageResource(R.drawable.icons8_mago_personal_100);
+            imgProfesion.setImageResource(R.drawable.icons8_mago_personal_100);
         }else if (profesion.equals("Herrero")){
-            imgAvatar.setImageResource(R.drawable.icons8_martillo_y_yunque_100);
+            imgProfesion.setImageResource(R.drawable.icons8_martillo_y_yunque_100);
         }else if (profesion.equals("Minero")){
-            imgAvatar.setImageResource(R.drawable.icons8_fiebre_dorada_128);
+            imgProfesion.setImageResource(R.drawable.icons8_fiebre_dorada_128);
         }
     }
 
@@ -126,8 +126,8 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
     @Override
     public void ejecutarTercerDialogo() {
         especieDialogo = new DialogoEspecie();
-        sexoDialogo.setCancelable(false);
-        sexoDialogo.show(getSupportFragmentManager(), "Diálogo Especie");
+        especieDialogo.setCancelable(false);
+        especieDialogo.show(getSupportFragmentManager(), "Diálogo Especie");
     }
 
     @Override
@@ -143,11 +143,11 @@ public class MainActivity extends AppCompatActivity implements InterfaceAvanzar,
         int vida = rand.nextInt(100)+1;
         campoTextVida.setText("   "+vida+" puntos de HP");
         int magia = rand.nextInt(10)+1;
-        campoTextMagia.setText("   "+magia+" puntos de M");
+        campoTextMagia.setText("   "+magia+" puntos de MAGICA");
         int fuerza = rand.nextInt(20)+1;
-        campoTextFuerza.setText("   "+fuerza+" puntos de PW");
+        campoTextFuerza.setText("   "+fuerza+" puntos de POWER");
         int velocidad = rand.nextInt(5)+1;
-        campoTextVelocidad.setText("   "+velocidad+" puntos de SP");
+        campoTextVelocidad.setText("   "+velocidad+" puntos de SPEED");
     }
 
 

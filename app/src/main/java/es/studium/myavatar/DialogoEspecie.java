@@ -23,48 +23,28 @@ public class DialogoEspecie extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.dlg_especie, null));
-
-        View MiVentanaDialogo = inflater.inflate(R.layout.dlg_especie, null);
-
-        //Creamos los vínculos con los strings
-        rbElfo = MiVentanaDialogo.findViewById(R.id.radioBtnElfo);
-        rdEnano = MiVentanaDialogo.findViewById(R.id.radioBtnEnano);
-        rbHobbit = MiVentanaDialogo.findViewById(R.id.radioBtnHoobit);
-        rdHumano = MiVentanaDialogo.findViewById(R.id.radioBtnHumano);
-
-        builder.setView(MiVentanaDialogo)
-                .setTitle(R.string.txt_dialogEspecie)
-                .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.txt_dialogEspecie)
+                .setItems(R.array.especie, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        //Creamos las condiciones de la selección realizada
-                            if (rbElfo.isChecked()) {
-                                dlgEscuchar.setDatosDialogoEspecie("Elfo");
-                                dlgEscuchar.ejecutarCuartoDialogo();
-                            } else if (rdEnano.isChecked()) {
-                                dlgEscuchar.setDatosDialogoEspecie("Enano");
-                                dlgEscuchar.ejecutarCuartoDialogo();
-                            }else if (rdHumano.isChecked()) {
-                                dlgEscuchar.setDatosDialogoEspecie("Humano");
-                                dlgEscuchar.ejecutarCuartoDialogo();
-                            }else if (rbHobbit.isChecked()) {
-                                dlgEscuchar.setDatosDialogoEspecie("Hobbit");
-                                dlgEscuchar.ejecutarCuartoDialogo();
-                            }else {
-                                Toast.makeText(getActivity(), "ERROR SUBSANABLE \n"+"    Debe elegir su Raza/Especie", Toast.LENGTH_SHORT).show();
-                            }
+                        // The 'which' argument contains the index position
+                        // of the selected item
+                        if(which==0){
 
-                    }
-                })
-                .setNegativeButton(R.string.txt_btnCancelarDialog, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
+                            dlgEscuchar.setDatosDialogoEspecie("Humano");
+                            dlgEscuchar.ejecutarCuartoDialogo();
+                        }else if (which==1){
+                            dlgEscuchar.setDatosDialogoEspecie("Elfo");
+                            dlgEscuchar.ejecutarCuartoDialogo();
+                        }else if (which==2){
+                            dlgEscuchar.setDatosDialogoEspecie("Enano");
+                            dlgEscuchar.ejecutarCuartoDialogo();
+                        }else if (which==3){
+                            dlgEscuchar.setDatosDialogoEspecie("Hobbit");
+                            dlgEscuchar.ejecutarCuartoDialogo();
+                        }
                     }
                 });
-        // Create the AlertDialog object and return it
         return builder.create();
     }
     public void onAttach(Context context){

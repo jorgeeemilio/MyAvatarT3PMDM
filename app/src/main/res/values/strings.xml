@@ -32,5 +32,22 @@
     <string name="pts_campoMagia"> puntos de mg</string>
     <string name="pts_campoFuerza"> puntos de pw</string>
     <string name="pts_campoVelocidad"> puntos de sp</string>
+    <string-array name="genero" >
+        <item>@string/txt_radioHombre</item>
+        <item>@string/txt_radioMujer</item>
+    </string-array>
+    <string-array name="especie" >
+        <item>@string/txt_radioHumano</item>
+        <item>@string/txt_radioElfo</item>
+        <item>@string/txt_radioEnano</item>
+        <item>@string/txt_radioHobbit</item>
+    </string-array>
+    <string-array name="profesion" >
+        <item>@string/txt_radioGuerrero</item>
+        <item>@string/txt_radioMago</item>
+        <item>@string/txt_radioMinero</item>
+        <item>@string/txt_radioHerrero</item>
+        <item>@string/txt_radioArquero</item>
+    </string-array>
 
 </resources>

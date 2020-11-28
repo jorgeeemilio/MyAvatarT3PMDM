@@ -21,52 +21,30 @@ public class DialogoProfesion extends DialogFragment {
     RadioButton rdMinero;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.dlg_profesion, null));
-
-        View MiVentanaDialogo = inflater.inflate(R.layout.dlg_profesion, null);
-
-        //Creamos los vínculos con los strings
-        rbArquero = MiVentanaDialogo.findViewById(R.id.radioBtnArquero);
-        rdGuerrero = MiVentanaDialogo.findViewById(R.id.radioBtnGuerrero);
-        rbMago = MiVentanaDialogo.findViewById(R.id.radioBtnMago);
-        rdHerrero = MiVentanaDialogo.findViewById(R.id.radioBtnHerrero);
-        rdMinero = MiVentanaDialogo.findViewById(R.id.radioBtnMinero);
-        builder.setView(MiVentanaDialogo)
-                .setTitle(R.string.txt_dialogProfesion)
-                .setPositiveButton(R.string.txt_btnAceptarDialog, new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.txt_dialogProfesion)
+                .setItems(R.array.profesion, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        //Creamos las condiciones de la selección realizada
-
-                            if (rbArquero.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rbArquero.toString());
-
-                            } else if (rdGuerrero.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rdGuerrero.toString());
-
-                            } else if (rbMago.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rbMago.toString());
-
-                            } else if (rdHerrero.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rdHerrero.toString());
-
-                            } else if (rdMinero.isChecked()) {
-                                dlgEscuchar.setDatosDialogoSexo(rdMinero.toString());
-
-                            }else {
-                                Toast.makeText(getActivity(), "ERROR SUBSANABLE \n"+"    Debe elegir su Sexo", Toast.LENGTH_SHORT).show();
-
+                        // The 'which' argument contains the index position
+                        // of the selected item
+                        if(which==0){
+                            dlgEscuchar.setDatosDialogoProfesion("Guerrero");
+                            dlgEscuchar.randomStats();
+                        }else if (which==1){
+                            dlgEscuchar.setDatosDialogoProfesion("Mago");
+                            dlgEscuchar.randomStats();
+                        }else if (which==2){
+                            dlgEscuchar.setDatosDialogoProfesion("Minero");
+                            dlgEscuchar.randomStats();
+                        }else if (which==3){
+                            dlgEscuchar.setDatosDialogoProfesion("Herrero");
+                            dlgEscuchar.randomStats();
+                        }else if (which==3){
+                            dlgEscuchar.setDatosDialogoProfesion("Arquero");
+                            dlgEscuchar.randomStats();
                         }
                     }
-                })
-                .setNegativeButton(R.string.txt_btnCancelarDialog, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // User cancelled the dialog
-                    }
                 });
-        // Create the AlertDialog object and return it
         return builder.create();
     }
     public void onAttach(Context context){
